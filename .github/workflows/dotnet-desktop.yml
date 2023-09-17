@@ -29,7 +29,7 @@ jobs:
 
     
     - name: Build
-      run: msbuild SteamRouteTool /p:Configuration=$env:${{ matrix.configuration }}
+      run: dotnet SteamRouteTool /p:Configuration=$env:${{ matrix.configuration }}
 
 
     - name: Upload build artifacts
