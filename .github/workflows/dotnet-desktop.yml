@@ -10,9 +10,6 @@ jobs:
         configuration: [Release]
 
     runs-on: windows-latest
-
-    env:
-      Solution_Name: SteamRouteTool
       
     steps:
     - name: Checkout
@@ -39,7 +36,7 @@ jobs:
       run: dotnet add package Newtonsoft.Json
     
     - name: Build
-      run: msbuild $env:Solution_Name /p:Configuration=$env:${{ matrix.configuration }}
+      run: msbuild SteamRouteTool /p:Configuration=$env:${{ matrix.configuration }}
 
 
     - name: Upload build artifacts
