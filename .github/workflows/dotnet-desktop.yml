@@ -23,13 +23,11 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
-
+    - name: Restore dependencies
+      run: dotnet restore SteamRouteTool
     
     - name: Build
-      run: dotnet build SteamRouteTool /p:Configuration=$env:${{ matrix.configuration }}
+      run: dotnet build SteamRouteTool -c ${{ matrix.configuration }}
 
 
     - name: Upload build artifacts
