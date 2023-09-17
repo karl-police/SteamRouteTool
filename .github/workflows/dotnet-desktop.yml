@@ -22,11 +22,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-
-    - name: Get Package
-      run: | 
-        C:\msys64\usr\bin\wget.exe https://github.com/JamesNK/Newtonsoft.Json/releases/download/13.0.3/Json130r3.zip
-        7z e Json130r3.zip "Bin\net45\Newtonsoft.Json.dll" "-o SteamRouteTool"
+        
 
     - name: NuGet Package
       uses: nuget/setup-nuget@v1
@@ -34,7 +30,7 @@ jobs:
         nuget-version: '5.x'
 
     - name: Restore NuGet Packages
-      run: nuget restore SteamRouteTool
+      run: nuget restore -SolutionDirectory SteamRouteTool
     
     - name: Build
       run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
