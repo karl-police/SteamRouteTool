@@ -29,7 +29,6 @@ jobs:
         7z e Json130r3.zip "Bin\net45\Newtonsoft.Json.dll" "-o SteamRouteTool"
 
     - name: NuGet Package
-    - uses: actions/checkout@master
     - uses: nuget/setup-nuget@v1
       with:
         nuget-version: '5.x'
