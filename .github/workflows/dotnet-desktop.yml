@@ -34,6 +34,10 @@ jobs:
     - name: Execute unit tests
       run: dotnet test
 
+
+    - name: Get Packages
+      run: dotnet add package Newtonsoft.Json
+    
     - name: Build
       run: msbuild $env:Solution_Name /p:Configuration=$env:${{ matrix.configuration }}
 
