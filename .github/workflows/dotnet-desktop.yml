@@ -32,8 +32,8 @@ jobs:
       run: dotnet test
 
 
-    - name: Restore NuGet packages
-      run: dotnet restore
+    - name: Get Package
+      run: dotnet add SteamRouteTool package Newtonsoft.Json
     
     - name: Build
       run: msbuild SteamRouteTool /p:Configuration=$env:${{ matrix.configuration }}
