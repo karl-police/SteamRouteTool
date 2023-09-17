@@ -1,0 +1,33 @@
+name: Build
+run-name: Building project
+
+on: workflow_dispatch
+
+
+jobs:
+  build_and_test:
+    name: SteamRouteTool Project
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest]
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+
+      - name: Build Solution
+        run: dotnet build SteamRouteTool.sln --no-restore
+      
+      
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: build_output
