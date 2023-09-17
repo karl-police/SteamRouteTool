@@ -34,9 +34,8 @@ jobs:
     - name: Execute unit tests
       run: dotnet test
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:${{ matrix.configuration }} /p:OutputPath="output"
+    - name: Build
+      run: msbuild $env:Solution_Name /p:Configuration=$env:${{ matrix.configuration }}
 
 
     - name: Upload build artifacts
