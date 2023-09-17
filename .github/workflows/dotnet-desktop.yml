@@ -27,7 +27,7 @@ jobs:
       run: dotnet restore SteamRouteTool
     
     - name: Build
-      run: dotnet build SteamRouteTool -c ${{ matrix.configuration }}
+      run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
 
 
     - name: Upload build artifacts
