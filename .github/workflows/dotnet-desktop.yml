@@ -29,10 +29,12 @@ jobs:
         7z e Json130r3.zip "Bin\net45\Newtonsoft.Json.dll" "-o SteamRouteTool"
 
     - name: NuGet Package
-    - uses: nuget/setup-nuget@v1
+      uses: nuget/setup-nuget@v1
       with:
         nuget-version: '5.x'
-    - run: nuget restore SteamRouteTool
+
+    - name: Restore NuGet Packages
+      run: nuget restore SteamRouteTool
     
     - name: Build
       run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
