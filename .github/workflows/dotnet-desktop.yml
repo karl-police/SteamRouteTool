@@ -30,7 +30,8 @@ jobs:
         nuget-version: '5.x'
 
     - name: Restore NuGet Packages
-      run: nuget restore -SolutionDirectory SteamRouteTool -OutputDirectory .
+      #run: nuget restore -SolutionDirectory SteamRouteTool -OutputDirectory .
+      run: dotnet add package Newtonsoft.Json --version 12.0.1
     
     - name: Build
       run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
