@@ -78,7 +78,8 @@ jobs:
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      #run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
 
@@ -87,4 +88,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: SteamRouteTool
-        path: SteamRouteTool
+        path: ç
