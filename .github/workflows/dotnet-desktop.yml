@@ -26,7 +26,7 @@ jobs:
     - name: Get Package
       run: | 
         C:\msys64\usr\bin\wget.exe https://github.com/JamesNK/Newtonsoft.Json/releases/download/13.0.3/Json130r3.zip
-        7z e Json130r3.zip
+        7z e Json130r3.zip -o SteamRouteTool
     
     - name: Build
       run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
