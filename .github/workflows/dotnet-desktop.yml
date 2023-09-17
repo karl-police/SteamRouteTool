@@ -33,7 +33,7 @@ jobs:
       run: nuget restore -SolutionDirectory SteamRouteTool -OutputDirectory ./packages
     
     - name: Build
-      run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
+      run: msbuild build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
 
 
     - name: Upload build artifacts
