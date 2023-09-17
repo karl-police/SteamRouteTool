@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: Build Solution
 
 on: workflow_dispatch
 
