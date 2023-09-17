@@ -30,7 +30,7 @@ jobs:
         nuget-version: '5.x'
 
     - name: Restore NuGet Packages
-      run: nuget restore -SolutionDirectory SteamRouteTool -OutputDirectory ./SteamRouteTool/packages
+      run: nuget restore -SolutionDirectory SteamRouteTool -OutputDirectory ./packages
     
     - name: Build
       run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
