@@ -21,12 +21,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        #dotnet-version: 6.0.x
+        dotnet-version: 4.7.2
 
     - name: Get Package
       run: | 
         C:\msys64\usr\bin\wget.exe https://github.com/JamesNK/Newtonsoft.Json/releases/download/13.0.3/Json130r3.zip
-        7z e Json130r3.zip "Bin\net45\Newtonsoft.Json.dll" "-o D:\a\SteamRouteTool\SteamRouteTool\SteamRouteTool"
+        7z e Json130r3.zip "Bin\net45\Newtonsoft.Json.dll" "-o SteamRouteTool"
     
     - name: Build
       run: dotnet build SteamRouteTool -c ${{ matrix.configuration }} --no-restore
